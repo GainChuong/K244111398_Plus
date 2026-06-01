@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>gpa</title>
+        <script>
+            function getscore() {
+                qt = eval(myform.qt.value);
+                gk = eval(myform.gk.value);
+                ck = eval(myform.ck.value);
+                t = eval(myform.t.value);
+                if (myform.course.value == "course1") {
+                    qt = qt * 0.3;
+                    gk = gk * 0.2;
+                    ck = ck * 0.5;
+                    t = t * 0;
+                    gpa=qt + gk + ck + t;
+                    trongsoqt=0.3;
+                    trongsogk=0.2;
+                    trongsock=0.5;
+                    trongsot=0;
+
+                }
+                else if (myform.course.value == "course2") {
+                    qt = qt * 0.25;
+                    gk = gk * 0.25;
+                    ck = ck * 0.5;
+                    t = t * 0;
+                    gpa=qt + gk + ck + t;
+                    trongsoqt=0.25;
+                    trongsogk=0.25;
+                    trongsock=0.5;
+                    trongsot=0;
+                }
+                else if (myform.course.value == "course3") {
+                    qt = qt * 0.15;
+                    gk = gk * 0.2;
+                    ck = ck * 0.5;
+                    t = t * 0.15;
+                    tronsoqt=0.15;
+                    trongsogk=0.2;
+                    trongsock=0.5;
+                    trongsot=0.15;
+                    gpa=qt + gk + ck + t;
+                }
+
+                myform.gpa.value = gpa;
+                myform.trongsoqt.value = trongsoqt;
+                myform.trongsogk.value = trongsogk;
+                myform.trongsock.value = trongsock;
+                myform.trongsot.value = trongsot;
+            }
+        </script>
+    </head>
+    <body >
+      <h1>GPA Calculator</h1>
+      <form name="myform">
+        <p>
+            Select Course:
+            <select name="course" onchange="getscore()">
+                <option value="course1">Course 1</option>
+                <option value="course2">Course 2</option>
+                <option value="course3">Course 3</option>
+            </select>
+        </p>
+        <p>
+            QT
+            <input type="text" name="qt" id="qt">
+            <input type="text" name="trongsoqt" id="trongsoqt" value="0.3" readonly>
+        </p>
+        <p>
+            GK
+            <input type="text" name="gk" id="gk">
+            <input type="text" name="trongsogk" id="trongsogk" value="0.2" readonly>
+        </p>
+        <p>
+            CK
+            <input type="text" name="ck" id="ck">
+            <input type="text" name="trongsock" id="trongsock" value="0.5" readonly>
+        </p>
+        <p>
+            Tai nang
+            <input type="text" name="t" id="t">
+            <input type="text" name="trongsot" id="trongsot" value="0" readonly>
+        </p>
+        <p>
+            <input type="button" value="GPA" onclick="getscore()">
+            <br>
+            GPA:
+            <input type="text" name="gpa">
+        </p>
+      </form>
+    </body>
+</html>
